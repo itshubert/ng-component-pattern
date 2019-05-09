@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { ToggleComponent } from "../toggle/toggle.component";
 
 @Component({
   selector: "toggle-on",
@@ -6,5 +7,5 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./toggle-on.component.scss"]
 })
 export class ToggleOnComponent {
-  @Input() on: boolean;
+  constructor(public toggle: ToggleComponent) {}
 }

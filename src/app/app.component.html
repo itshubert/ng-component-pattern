@@ -1,8 +1,8 @@
 <div class="container">
-    <div class="row">
-        <div class="col text-center">
-            <!-- a toggle component that allows the user to put whatever they want inside -->
-            <toggle (toggle)="onToggle($event)">
+    <toggle (toggle)="onToggle($event)">
+        <!-- a toggle component that allows the user to put whatever they want inside -->
+        <div class="row">
+            <div class="col text-center">
                 <toggle-button></toggle-button>
                 <toggle-on>
                     <span class="badge badge-success">ON</span>
@@ -10,12 +10,12 @@
                 <toggle-off>
                     <span class="badge badge-danger">OFF</span>
                 </toggle-off>
-            </toggle>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            <other-component></other-component>
+        <div class="row">
+            <div class="col text-center">
+                <other-component></other-component>
+            </div>
         </div>
-    </div>
+    </toggle>
 </div>
