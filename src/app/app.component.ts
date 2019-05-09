@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "advanced-ng-pattern";
 
-  onToggle(on) {
-    console.log("in app-component toggle", on);
+  onToggle(message, on) {
+    console.log("in app-component toggle", message, on);
   }
 }

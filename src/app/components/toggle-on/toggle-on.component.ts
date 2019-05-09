@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ToggleComponent } from "../toggle/toggle.component";
+import { ToggleProviderDirective } from "src/app/directives/toggleProvider.directive";
 
 @Component({
   selector: "toggle-on",
@@ -7,5 +7,5 @@ import { ToggleComponent } from "../toggle/toggle.component";
   styleUrls: ["./toggle-on.component.scss"]
 })
 export class ToggleOnComponent {
-  constructor(public toggle: ToggleComponent) {}
+  constructor(public toggleProvider: ToggleProviderDirective) {}
 }

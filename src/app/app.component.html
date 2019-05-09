@@ -1,6 +1,6 @@
 <div class="container">
-    <toggle (toggle)="onToggle($event)">
-        <!-- a toggle component that allows the user to put whatever they want inside -->
+    <!-- a toggle component that allows the user to put whatever they want inside -->
+    <div toggle #firstToggle="toggle" (toggle)="onToggle('first', $event)">
         <div class="row">
             <div class="col text-center">
                 <toggle-button></toggle-button>
@@ -10,12 +10,31 @@
                 <toggle-off>
                     <span class="badge badge-danger">OFF</span>
                 </toggle-off>
+
+                <toggle #secondToggle="toggle" (toggle)="onToggle('second', $event)">
+                    <p>
+                    Second:
+                    <toggle-on>On</toggle-on>
+                    <toggle-off>Off</toggle-off>
+                    <toggle-button></toggle-button>
+                    </p>
+                </toggle>
             </div>
         </div>
-        <div class="row">
-            <div class="col text-center">
-                <other-component></other-component>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col text-center" [toggleProvider]="firstToggle">
+            <h4>Bound to firstToggle</h4>
+            <other-component></other-component>
         </div>
-    </toggle>
+    </div>
+    <div class="row">
+        <div class="col text-center" [toggleProvider]="secondToggle">
+            <h4>Bound to second toggle</h4>
+            <toggle-on>
+                On
+            </toggle-on>
+            <toggle-off>Off</toggle-off>
+        </div>
+    </div>
 </div>

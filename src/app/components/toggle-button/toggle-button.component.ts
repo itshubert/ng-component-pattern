@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { ToggleComponent } from "../toggle/toggle.component";
+import { ToggleProviderDirective } from "src/app/directives/toggleProvider.directive";
 
 @Component({
   selector: "toggle-button",
@@ -7,12 +7,12 @@ import { ToggleComponent } from "../toggle/toggle.component";
   styleUrls: ["./toggle-button.component.scss"]
 })
 export class ToggleButtonComponent {
-  constructor(public toggle: ToggleComponent) {}
+  constructor(public toggleProvider: ToggleProviderDirective) {}
 
   onClick() {
-    // this.on = !this.on; // what"s the point of this if we"re reassigning the value inside toggle.component?
-    // this.toggle.emit(this.on);
-
-    this.toggle.setOnState(!this.toggle.on);
+    // this <toggle-button> is wrapped in a toggle directive
+    // and the ToggleProviderDirective is injecting parent ToggleDirective
+    // so this.toggleProvider.toggle is the toggle directive wrapping this toggle-button
+    this.toggleProvider.toggle.setOnState(!this.toggleProvider.toggle.on);
   }
 }

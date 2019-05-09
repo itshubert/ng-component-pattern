@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ToggleProviderDirective } from "src/app/directives/toggleProvider.directive";
 
 @Component({
   selector: "other-component",
