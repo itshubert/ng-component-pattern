@@ -1,40 +1,10 @@
-<div class="container">
-    <!-- a toggle component that allows the user to put whatever they want inside -->
-    <div toggle #firstToggle="toggle" (toggle)="onToggle('first', $event)">
-        <div class="row">
-            <div class="col text-center">
-                <toggle-button></toggle-button>
-                <toggle-on>
-                    <span class="badge badge-success">ON</span>
-                </toggle-on>
-                <toggle-off>
-                    <span class="badge badge-danger">OFF</span>
-                </toggle-off>
-
-                <toggle #secondToggle="toggle" (toggle)="onToggle('second', $event)">
-                    <p>
-                    Second:
-                    <toggle-on>On</toggle-on>
-                    <toggle-off>Off</toggle-off>
-                    <toggle-button></toggle-button>
-                    </p>
-                </toggle>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col text-center" [toggleProvider]="firstToggle">
-            <h4>Bound to firstToggle</h4>
-            <other-component></other-component>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col text-center" [toggleProvider]="secondToggle">
-            <h4>Bound to second toggle</h4>
-            <toggle-on>
-                On
-            </toggle-on>
-            <toggle-off>Off</toggle-off>
-        </div>
-    </div>
+<div toggle #baseToggle #myToggle="toggle" #myToggleProvider="toggleProvider" (toggle)="onToggle($event)">
+  <toggle-on #toggleOn>On</toggle-on>
+  <toggle-off>Off</toggle-off>
+  <toggle-button></toggle-button>
+  <p>baseToggle is a {{baseToggle.constructor.name}}</p>
+  <p>myToggle is a {{myToggle.constructor.name}}</p>
+  <p>myToggleProvider is a {{myToggleProvider.constructor.name}}</p>
+  <p>toggleOn is a {{toggleOn.constructor.name}}</p>
+  <button (click)="myToggleProvider.toggle.setOnState(!myToggleProvider.toggle.on)">Toggle it!</button>
 </div>

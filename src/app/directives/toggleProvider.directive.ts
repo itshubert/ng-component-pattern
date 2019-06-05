@@ -10,6 +10,9 @@ export class ToggleProviderDirective implements OnChanges {
   @Input()
   toggleProvider: ToggleDirective;
 
+  @Input("toggleProviderLabel")
+  label: string;
+
   toggle: ToggleDirective = this.toggleDirective;
 
   constructor(
@@ -17,9 +20,13 @@ export class ToggleProviderDirective implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    const { toggleProvider } = changes;
+    const { toggleProvider, label } = changes;
     if (toggleProvider) {
       this.toggle = this.toggleProvider || this.toggleDirective;
+    }
+
+    if (label) {
+      console.log("ToggleProviderLabel", this.label);
     }
   }
 }
