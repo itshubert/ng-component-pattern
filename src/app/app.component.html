@@ -1,10 +1,24 @@
-<div toggle #baseToggle #myToggle="toggle" #myToggleProvider="toggleProvider" (toggle)="onToggle($event)">
-  <toggle-on #toggleOn>On</toggle-on>
-  <toggle-off>Off</toggle-off>
-  <toggle-button></toggle-button>
-  <p>baseToggle is a {{baseToggle.constructor.name}}</p>
-  <p>myToggle is a {{myToggle.constructor.name}}</p>
-  <p>myToggleProvider is a {{myToggleProvider.constructor.name}}</p>
-  <p>toggleOn is a {{toggleOn.constructor.name}}</p>
-  <button (click)="myToggleProvider.toggle.setOnState(!myToggleProvider.toggle.on)">Toggle it!</button>
-</div>
+<toggle>
+  <ng-template let-on="on" let-toggle="toggle" let-label="label">
+    <div>Some Label: {{label}}</div>
+    {{ on ? 'The button is on' : 'The button is off'}}
+    <!-- The red squiggles on toggle() can be ignored, but are annoying. -->
+    <switch [on]="on" (click)="toggle()"></switch>
+    <hr />
+    <my-toggle [on]="on" (toggle)="toggle()"></my-toggle>
+  </ng-template>
+</toggle>
+
+<br><br><br>
+
+<h3>Workaround to avoid red squiggles</h3>
+<toggle>
+  <ng-template let-on="on" let-fns="fns">
+    {{ on
+        ? 'The button is on'
+        : 'The button is off'}}
+    <switch [on]="on" (click)="fns.toggle()"></switch>
+    <hr />
+    <my-toggle [on]="on" (toggle)="fns.toggle()"></my-toggle>
+  </ng-template>
+</toggle>

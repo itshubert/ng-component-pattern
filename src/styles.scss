@@ -1,16 +1,13 @@
 /* Add application styles & imports to this file! */
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
-button:focus {
-  outline: none;
-}
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
-
+body {
+  font-family: 'Antic Slab', serif;
+}
 hr {
   width: 100%;
 }

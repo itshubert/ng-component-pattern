@@ -4,28 +4,21 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SwitchComponent } from "./components/switch/switch.component";
-import { ToggleOnComponent } from "./components/toggle-on/toggle-on.component";
-import { ToggleOffComponent } from "./components/toggle-off/toggle-off.component";
-import { ToggleButtonComponent } from "./components/toggle-button/toggle-button.component";
-import { OtherComponentComponent } from "./components/other-component/other-component.component";
-import { ToggleDirective } from "./directives/toggle.directive";
-import { ToggleProviderDirective } from "./directives/toggleProvider.directive";
+
+import { MyToggleComponent } from "./my-toggle/my-toggle.component";
+import { ToggleModule } from "./toggle/toggle.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     SwitchComponent,
-    ToggleOnComponent,
-    ToggleOffComponent,
-    ToggleButtonComponent,
-    OtherComponentComponent,
-    ToggleDirective,
-    ToggleProviderDirective
+    MyToggleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

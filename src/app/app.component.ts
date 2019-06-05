@@ -1,5 +1,4 @@
-import { Component, ViewContainerRef, TemplateRef, ContentChild, ViewChild } from "@angular/core";
-import { ToggleProviderDirective } from "./directives/toggleProvider.directive";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -7,19 +6,10 @@ import { ToggleProviderDirective } from "./directives/toggleProvider.directive";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = "advanced-ng-pattern";
-  myLabel = "The toggle is";
-  someOtherText = "Some other text";
-
-  @ViewChild("myToggleProvider") toggleProvider: ToggleProviderDirective;
-
-  constructor() {
-
-  }
+  public on = true;
+  label = "AppComponent";
 
   onToggle(message, on) {
-    console.log("in app-component toggle", message, on);
-    console.log("ToggleProviderDirective constructor name: ", this.toggleProvider.constructor.name);
-    console.log("ToggleProviderDirective on state is", this.toggleProvider.toggle.on);
+    console.log(message, on);
   }
 }
