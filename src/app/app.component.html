@@ -1,24 +1,10 @@
 <toggle>
-  <ng-template let-on="on" let-toggle="toggle" let-label="label">
-    <div>Some Label: {{label}}</div>
-    {{ on ? 'The button is on' : 'The button is off'}}
-    <!-- The red squiggles on toggle() can be ignored, but are annoying. -->
-    <switch [on]="on" (click)="toggle()"></switch>
-    <hr />
-    <my-toggle [on]="on" (toggle)="toggle()"></my-toggle>
-  </ng-template>
-</toggle>
-
-<br><br><br>
-
-<h3>Workaround to avoid red squiggles</h3>
-<toggle>
   <ng-template let-on="on" let-fns="fns">
-    {{ on
-        ? 'The button is on'
-        : 'The button is off'}}
-    <switch [on]="on" (click)="fns.toggle()"></switch>
+    <switch toggler [on]="on" (click)="fns.toggle()">
+    </switch>
     <hr />
-    <my-toggle [on]="on" (toggle)="fns.toggle()"></my-toggle>
+    <button toggler [on]="on" (click)="fns.toggle()">
+      {{on ? 'on' : 'off'}}
+    </button>
   </ng-template>
 </toggle>
